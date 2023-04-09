@@ -7,6 +7,7 @@ import { GetPaginatedTodoDto } from "./dto/get-paginated-todo.dto";
 import { AddTodoDto } from "./dto/add-todo.dto";
 import { UpdateTodoDto } from "./dto/update-todo.dto";
 import { TodoService } from "./todo.service";
+import { UpperAndFusionPipe } from "../pipes/upper-and-fusion/upper-and-fusion.pipe";
 
 
 @Controller('todo')
@@ -50,6 +51,13 @@ export class TodoController {
       @Param('id') id   // il faut recuperer l'id du todo à supprimer
     ) {
         return this.todoService.deleteTodo(+id);
+    }
+
+    @Post('pipe')
+    addPipe(
+      @Body(UpperAndFusionPipe) data
+    ){
+        return data;
     }
 
 }
