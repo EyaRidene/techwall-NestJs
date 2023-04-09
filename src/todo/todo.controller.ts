@@ -17,15 +17,17 @@ export class TodoController {
 
     @Get()
     getTodo(
-      @Query() mesQueryParams: GetPaginatedTodoDto
+      @Query() mesQueryParams: GetPaginatedTodoDto //mesQueryParams devient une instance de GetPaginatedTodoDto puisque transform:true
     ) {
-        console.log(mesQueryParams);
+        console.log(mesQueryParams instanceof GetPaginatedTodoDto);
         return this.todoService.getTodos();
     }
 
     @Get('/:id')
     getTodoById(
-      @Param('id') id
+      @Param('id',new ParseIntPipe({
+            errorHttpStatusCode: HttpStatus.NOT_FOUND
+      } )) id
     ) {
         return this.todoService.getTodoById(id);// na7iw kal +
     }
