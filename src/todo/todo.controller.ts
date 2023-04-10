@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 
-import { Body, Controller, HttpStatus, Param, ParseIntPipe, Query } from "@nestjs/common";
+import { Body, Controller, HttpStatus, Param, ParseIntPipe, Query, UseInterceptors } from "@nestjs/common";
 import { Get, Post} from '@nestjs/common';
 import { Delete, Put } from "@nestjs/common/decorators";
 import { GetPaginatedTodoDto } from "./dto/get-paginated-todo.dto";
@@ -8,8 +8,9 @@ import { AddTodoDto } from "./dto/add-todo.dto";
 import { UpdateTodoDto } from "./dto/update-todo.dto";
 import { TodoService } from "./todo.service";
 import { UpperAndFusionPipe } from "../pipes/upper-and-fusion/upper-and-fusion.pipe";
+import { DurationInterceptor } from "../interceptors/duration/duration.interceptor";
 
-
+// @UseInterceptors(DurationInterceptor) : pour appliquer l'intercepteur aux seulement les requetes de ce controlleur
 @Controller('todo')
 export class TodoController {
     // Injection du TodoService

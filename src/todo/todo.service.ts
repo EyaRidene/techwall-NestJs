@@ -14,7 +14,7 @@ export class TodoService {
   getTodoById(id: number) {
     const todo = this.todos.find((actualTodo) => actualTodo.id === id);
     if (todo) return todo;
-    throw new NotFoundException(`Le todo d'id ${id} n'existe pas`);
+    throw new NotFoundException(`Le todo d'id ${id} n'existe pas`); //notion de filtre : declanchement des erreurs
   }
 
   addTodo(newTodo: AddTodoDto) {
