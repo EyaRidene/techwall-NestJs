@@ -8,7 +8,7 @@ import { AddTodoDto } from "./dto/add-todo.dto";
 import { UpdateTodoDto } from "./dto/update-todo.dto";
 import { TodoService } from "./todo.service";
 import { UpperAndFusionPipe } from "../pipes/upper-and-fusion/upper-and-fusion.pipe";
-import { DurationInterceptor } from "../interceptors/duration/duration.interceptor";
+
 
 // @UseInterceptors(DurationInterceptor) : pour appliquer l'intercepteur aux seulement les requetes de ce controlleur
 @Controller('todo')
