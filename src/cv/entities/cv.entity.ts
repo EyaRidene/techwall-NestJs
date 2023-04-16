@@ -1,8 +1,8 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { TimeStampEntity } from "../../Generics/timeStamp.entity";
+import { TimeStampEntity } from '../../Generics/timeStamp.entity';
 
 @Entity('cv')
-export class CvEntity extends TimeStampEntity{
+export class CvEntity extends TimeStampEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
